@@ -113,30 +113,30 @@ async function member() {
       await task("joinCommon/doTask", `activityId=${$.activityId}&uuid=${$.actorUuid}&pin=${encodeURIComponent($.secretPin)}&taskType=20&taskValue=`);
       await $.wait(500);
       await task("joinCommon/doTask", `activityId=${$.activityId}&uuid=${$.actorUuid}&pin=${encodeURIComponent($.secretPin)}&taskType=23&taskValue=`);
-      // await $.wait(500);
-      // await task("joinCommon/taskInfo", `pin=${encodeURIComponent($.secretPin)}&activityId=${$.activityId}`);
-      // $.log("加入店铺会员");
-      // if ($.openCardList) {
-      //   for (const vo of $.openCardList) {
-      //     // console.log(vo)
-      //     $.log(`>>> 去加入${vo.name} ${vo.value}`);
-      //     // await task("crm/pageVisit/insertCrmPageVisit", `venderId=1000000576&elementId=入会跳转&pageId=dzlhkk068d4d0ab8a6609723002f50&pin=${encodeURIComponent($.secretPin)}`, 1);
-      //     // await $.wait(500);
-      //     // await getFirstLZCK();
-      //     // await getToken();
-      //     await getShopOpenCardInfo({ venderId: `${vo.value}`, channel: "401" }, vo.value);
-      //     // console.log($.openCardActivityId)
-      //     await bindWithVender({ venderId: `${vo.value}`, bindByVerifyCodeFlag: 1, registerExtend: {}, writeChildFlag: 0, activityId: 2329491, channel: 401 }, vo.value);
-      //     // await $.wait(500);
-      //   }
-      // } else {
-      //   $.log("没有获取到对应的任务。\n");
-      // }
+      await $.wait(500);
+      await task("joinCommon/taskInfo", `pin=${encodeURIComponent($.secretPin)}&activityId=${$.activityId}`);
+      $.log("加入店铺会员");
+      if ($.openCardList) {
+        for (const vo of $.openCardList) {
+          // console.log(vo)
+          $.log(`>>> 去加入${vo.name} ${vo.value}`);
+          // await task("crm/pageVisit/insertCrmPageVisit", `venderId=1000000576&elementId=入会跳转&pageId=dzlhkk068d4d0ab8a6609723002f50&pin=${encodeURIComponent($.secretPin)}`, 1);
+          // await $.wait(500);
+          // await getFirstLZCK();
+          // await getToken();
+          await getShopOpenCardInfo({ venderId: `${vo.value}`, channel: "401" }, vo.value);
+          // console.log($.openCardActivityId)
+          await bindWithVender({ venderId: `${vo.value}`, bindByVerifyCodeFlag: 1, registerExtend: {}, writeChildFlag: 0, activityId: 2329491, channel: 401 }, vo.value);
+          // await $.wait(500);
+        }
+      } else {
+        $.log("没有获取到对应的任务。\n");
+      }
       // await task("joinCommon/taskInfo", `pin=${encodeURIComponent($.secretPin)}&activityId=${$.activityId}`);
       // await task("joinCommon/activityContent", `activityId=${$.activityId}&pin=${encodeURIComponent($.secretPin)}&pinImg=&nick=${encodeURIComponent($.pin)}&cjyxPin=&cjhyPin=&shareUuid=${encodeURIComponent($.authorCode)}`, 0, 1);
-      // console.log("去助力 -> " + $.authorCode);
+      console.log("去助力 -> " + $.authorCode);
       // // await task("joinCommon/assist/status", `activityId=${$.activityId}&pin=${encodeURIComponent($.secretPin)}&uuid=${$.actorUuid}&shareUuid=${$.authorCode}`);
-      // await task("joinCommon/assist", `activityId=${$.activityId}&pin=${encodeURIComponent($.secretPin)}&uuid=${$.actorUuid}&shareUuid=${$.authorCode}`);
+      await task("joinCommon/assist", `activityId=${$.activityId}&pin=${encodeURIComponent($.secretPin)}&uuid=${$.actorUuid}&shareUuid=${$.authorCode}`);
       // await task('linkgame/help/list', `pin=${encodeURIComponent($.secretPin)}&activityId=${$.activityId}`)
 
       // await task('linkgame/task/info', `pin=${encodeURIComponent($.secretPin)}&activityId=${$.activityId}`)
